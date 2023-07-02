@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-//import { ArticlesEntity } from 'src/app/Interfaces/News-response';
+import { Component, Input, OnInit } from '@angular/core';
+import { ArticlesEntity } from 'src/app/Interfaces/News-response';
 
 @Component({
   selector: 'app-news-card',
@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsCardComponent  implements OnInit {
 
- // @Input news: ArticlesEntity[]
+  @Input()
+  news!: ArticlesEntity[];
   constructor() { }
 
   ngOnInit() {}

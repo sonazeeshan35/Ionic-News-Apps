@@ -12,9 +12,10 @@ import { map } from 'rxjs/operators';
 export class FolderPage implements OnInit {
   public folder!: string;
   newsList!: ArticlesEntity[];
- 
-  constructor( private activatedRoute = inject(ActivatedRoute),
-  private newsapiservice: NewsapiService) {}
+ private activatedRoute = inject(ActivatedRoute);
+  constructor( 
+  private newsapiservice: NewsapiService
+  ) {}
 
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id')as string;
@@ -23,6 +24,6 @@ export class FolderPage implements OnInit {
   getTopHeadlines(){
     this.newsapiservice.getTopCountryHeadLineslines('IE',this.folder)
     .pipe(map((res) => res.articles))
-    .subscribe((news) => (this.newsList));
+    .subscribe((news) => (this.newsList = this.newsList));
   }
 }
